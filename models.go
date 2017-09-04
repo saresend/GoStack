@@ -21,7 +21,7 @@ type Comment struct {
 }
 
 //Response represents the outer layer of json response
-type Response struct {
+type CommentResponse struct {
 	Items []Comment `json:"items"`
 }
 

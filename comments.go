@@ -10,27 +10,19 @@ type CommentStruct struct {
 	site    string
 }
 
-//NewCommentStruct instantiates an objects through which all functionality can be obtained
-func NewCommentStruct(site string) CommentStruct {
-	comment := CommentStruct{"https://api.stackexchange.com/2.2/comments", site}
-	return comment
-}
-
-//GetComments makes a default call
-func GetComments(site string) []Comment {
+//GetComments makes a call to get comments on a given website
+func GetComments(site string) ([]Comment, error) {
 	url := "https://api.stackexchange.com/2.2/comments" + "?site=" + site
 
 	resp, err := http.Get(url)
 	if err != nil {
-		println(err.Error())
+		return nil, err
 	}
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		println(err.Error())
+		return nil, err
 	}
-	var comments Response
+	var comments CommentResponse
 	json.Unmarshal(body, &comments)
-
-	return comments.Items
+	return comments.Items, nil
 }
-
