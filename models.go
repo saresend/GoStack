@@ -34,6 +34,7 @@ type QuestionResponse struct {
 type Question struct {
 	Tags         []string `json:"tags"`
 	Owner        Owner    `json:"owner"`
+	QuestionID   int      `json:"question_id"`
 	IsAnswered   bool     `json:"is_answered"`
 	ViewCount    int      `json:"view_count"`
 	Score        int      `json:"score"`
@@ -41,4 +42,20 @@ type Question struct {
 	CreationDate int      `json:"creation_date"`
 	Link         string   `json:"link"`
 	Title        string   `json:"title"`
+	Body         string   `json:"body"`
+}
+
+type AnswerResponse struct {
+	Items []Answer `json:"items"`
+}
+
+type Answer struct {
+	Owner            Owner  `json:"owner"`
+	IsAccepted       bool   `json:"is_accepted"`
+	Score            int    `json:"score"`
+	LastActivityDate int    `json:"last_activity_date"`
+	CreationDate     int    `json:"creation_date"`
+	AnswerID         int    `json:"answer_id"`
+	QuestionID       int    `json:"question_id"`
+	Body             string `json:"body"`
 }
