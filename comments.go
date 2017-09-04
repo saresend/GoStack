@@ -33,3 +33,4 @@ func GetComments(site string) []Comment {
 
 	return comments.Items
 }
+

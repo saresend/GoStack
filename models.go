@@ -24,3 +24,21 @@ type Comment struct {
 type Response struct {
 	Items []Comment `json:"items"`
 }
+
+//QuestionResponse is the outer response provided by stack exchange
+type QuestionResponse struct {
+	Items []Question `json:"items"`
+}
+
+//Question represents the response from stackexchange api v.2.2
+type Question struct {
+	Tags         []string `json:"tags"`
+	Owner        Owner    `json:"owner"`
+	IsAnswered   bool     `json:"is_answered"`
+	ViewCount    int      `json:"view_count"`
+	Score        int      `json:"score"`
+	LastActivity int      `json:"last_activity_date"`
+	CreationDate int      `json:"creation_date"`
+	Link         string   `json:"link"`
+	Title        string   `json:"title"`
+}
