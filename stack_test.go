@@ -12,3 +12,9 @@ func TestGetComments(t *testing.T) {
 		t.Log(len(comments))
 	}
 }
+
+func TestGetAnswers(t *testing.T) {
+	questions := GetQuestions("stackoverflow")
+	answers := questions[0].GetAnswers()
+	println(answers)
+}
