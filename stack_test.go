@@ -18,7 +18,10 @@ func TestGetAnswers(t *testing.T) {
 		t.Log(err.Error())
 	}
 	if len(questions) > 0 {
-		answers := questions[0].GetAnswers()
+		answers, err := questions[0].GetAnswers()
+		if err != nil {
+			t.Log(err.Error())
+		}
 		println(answers)
 	}
 

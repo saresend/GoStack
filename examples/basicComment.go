@@ -5,5 +5,9 @@ import (
 )
 
 func main() {
-	GoStack.GetComments("stackoverflow")
+	comments, _ := GoStack.GetComments("stackoverflow")
+
+	for i := 0; i < len(comments); i++ {
+
+	}
 }

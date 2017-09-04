@@ -14,13 +14,14 @@ type Owner struct {
 type Comment struct {
 	Owner        Owner  `json:"owner"`
 	Edited       string `json:"edited"`
+	Body         string `json:"body"`
 	Score        int    `json:"score"`
 	CreationDate int    `json:"creation_date"`
 	PostID       int    `json:"post_id"`
 	CommentID    int    `json:"comment_id"`
 }
 
-//Response represents the outer layer of json response
+//CommentResponse represents the outer layer of json response
 type CommentResponse struct {
 	Items []Comment `json:"items"`
 }
