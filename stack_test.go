@@ -28,3 +28,14 @@ func TestGetAnswers(t *testing.T) {
 	}
 
 }
+
+func TestGetPosts(t *testing.T) {
+	posts, err := GetPosts("stackoverflow")
+	if err != nil {
+		t.Log(err.Error())
+	} else {
+		if len(posts) == 0 {
+			t.Fatal("No HTTP error, but no posts")
+		}
+	}
+}

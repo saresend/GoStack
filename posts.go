@@ -22,5 +22,4 @@ func GetPosts(site string) ([]Post, error) {
 		return nil, err
 	}
 	return response.Items, nil
-
 }
