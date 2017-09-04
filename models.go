@@ -46,6 +46,8 @@ type Question struct {
 	Body         string   `json:"body"`
 }
 
+/* Answer Models */
+
 type AnswerResponse struct {
 	Items []Answer `json:"items"`
 }
@@ -58,5 +60,25 @@ type Answer struct {
 	CreationDate     int    `json:"creation_date"`
 	AnswerID         int    `json:"answer_id"`
 	QuestionID       int    `json:"question_id"`
+	Body             string `json:"body"`
+}
+
+/* Post Models */
+
+//PostResponse represents the outer response from StackExchange v2.2 Server
+type PostResponse struct {
+	Items []Post `json:"items"`
+}
+
+//Post represents a single post made to stack exchange
+type Post struct {
+	Owner            Owner  `json:"owner"`
+	Score            int    `json:"score"`
+	LastEditDate     int    `json:"last_edit_date"`
+	LastActivityDate int    `json:"last_activity_date"`
+	CreationDate     int    `json:"creation_date"`
+	PostType         string `json:"post_type"`
+	PostID           int    `json:"post_id"`
+	Link             string `json:"link"`
 	Body             string `json:"body"`
 }
