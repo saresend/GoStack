@@ -6,7 +6,6 @@ func TestGetComments(t *testing.T) {
 	comments, err := GetComments("stackoverflow")
 	if err != nil {
 		t.Log(err.Error())
-		//t.Fatal("Couldn't load comments")
 	} else {
 		t.Log(len(comments))
 		if len(comments) == 0 {
