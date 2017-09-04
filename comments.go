@@ -13,7 +13,7 @@ type CommentStruct struct {
 //GetComments makes a call to get comments on a given website
 func GetComments(site string) ([]Comment, error) {
 	url := "https://api.stackexchange.com/2.2/comments" + "?filter=withbody&site=" + site
-
+	println(url)
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
