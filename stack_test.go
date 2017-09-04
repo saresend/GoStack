@@ -9,6 +9,9 @@ func TestGetComments(t *testing.T) {
 		//t.Fatal("Couldn't load comments")
 	} else {
 		t.Log(len(comments))
+		if len(comments) == 0 {
+			t.Fatal("No Http error, but failed to read comments")
+		}
 	}
 }
 
