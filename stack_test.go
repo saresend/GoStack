@@ -15,6 +15,9 @@ func TestGetComments(t *testing.T) {
 
 func TestGetAnswers(t *testing.T) {
 	questions := GetQuestions("stackoverflow")
-	answers := questions[0].GetAnswers()
-	println(answers)
+	if len(questions) > 0 {
+		answers := questions[0].GetAnswers()
+		println(answers)
+	}
+
 }
