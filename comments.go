@@ -23,6 +23,9 @@ func GetComments(site string) ([]Comment, error) {
 		return nil, err
 	}
 	var comments CommentResponse
+	if err = checkError(body); err != nil {
+		return nil, err
+	}
 	err = json.Unmarshal(body, &comments)
 	if err != nil {
 		return nil, err
