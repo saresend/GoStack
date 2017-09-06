@@ -39,3 +39,13 @@ func TestGetPosts(t *testing.T) {
 		}
 	}
 }
+
+func TestAuthentication(t *testing.T) {
+	token, err := GetAccessToken("10737", "40SqxdGUyX01sxjH2UVwJw((")
+	if err == nil {
+		if token == "" {
+			t.Log(token)
+			t.Fatal("Couldn't find token")
+		}
+	}
+}
