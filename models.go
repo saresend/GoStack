@@ -82,3 +82,21 @@ type Post struct {
 	Link             string `json:"link"`
 	Body             string `json:"body"`
 }
+
+/* Search Responses */
+
+//SearchResponse represents the response from the server
+type SearchResponse struct {
+	Items []SearchItem `json:"items"`
+}
+
+//SearchItem represents a single search result
+type SearchItem struct {
+	Tags       []string `json:"tags"`
+	Owner      Owner    `json:"owner"`
+	QuestionID int      `json:"question_id"`
+	Score      int      `json:"score"`
+	IsAnswered bool     `json:"is_answered"`
+	Title      string   `json:"title"`
+	Link       string   `json:"link"`
+}
