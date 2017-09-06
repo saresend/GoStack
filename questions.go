@@ -16,8 +16,14 @@ func GetQuestions(site string) ([]Question, error) {
 	if err != nil {
 		return nil, err
 	}
+	if err = checkError(body); err != nil {
+		return nil, err
+	}
 	var questionResponse QuestionResponse
-	json.Unmarshal(body, &questionResponse)
+	err = json.Unmarshal(body, &questionResponse)
+	if err != nil {
+		return nil, err
+	}
 
 	return questionResponse.Items, nil
 }
@@ -34,6 +40,9 @@ func (q *Question) GetAnswers() ([]Answer, error) {
 		return nil, err
 	}
 	var aR AnswerResponse
+	if err = checkError(body); err != nil {
+		return nil, err
+	}
 	json.Unmarshal(body, &aR)
 	return aR.Items, nil
 

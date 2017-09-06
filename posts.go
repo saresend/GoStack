@@ -18,6 +18,11 @@ func GetPosts(site string) ([]Post, error) {
 
 	}
 	var response PostResponse
+
+	if err = checkError(body); err != nil {
+		return nil, err
+	}
+
 	err = json.Unmarshal(body, &response)
 	if err != nil {
 		return nil, err
