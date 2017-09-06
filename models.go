@@ -13,7 +13,7 @@ type Owner struct {
 //Comment represents a given comment
 type Comment struct {
 	Owner        Owner  `json:"owner"`
-	Edited       string `json:"edited"`
+	Edited       bool   `json:"edited"`
 	Body         string `json:"body"`
 	Score        int    `json:"score"`
 	CreationDate int    `json:"creation_date"`
