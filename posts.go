@@ -7,6 +7,7 @@ import "encoding/json"
 //GetPosts retrieves all posts in a given forum
 func GetPosts(site string) ([]Post, error) {
 	url := "https://api.stackexchange.com/2.2/posts?filter=withbody&site=" + site
+	println(url)
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
